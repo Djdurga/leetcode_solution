@@ -1,0 +1,38 @@
+package com.dur;
+
+
+//Find minimum number of merge operations to make an array palindrome
+
+public class minimumNumberOfMergeOperationsToMakeAnArrayPalindrome {
+	static int findMin(int[] arr, int n) {
+		int ans = 0;
+		int j;
+		for(int i=0,j1=n-1; i<=j1;) {
+			if(arr[i] == arr[j1]) {
+				i++;
+				j1--;
+			}
+			else if(arr[i] > arr[j1])
+			{
+				j1--;
+				arr[j1] += arr[j1+1];
+				ans++;
+			}
+			else
+			{
+				i++;
+				arr[i] += arr[i-1];
+				ans++;
+			}
+		}
+		return ans;
+	}
+	 public static void main(String[] args)
+	    {
+	        int arr[] = new int[]{1, 4, 5, 9, 1} ;
+	        System.out.println("Count of minimum operations is: "+
+	                                findMin(arr, arr.length));
+	     
+	    }
+
+}
