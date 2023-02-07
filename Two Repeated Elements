@@ -1,0 +1,21 @@
+//User function template for JAVA
+
+class Solution
+{
+    //Function to find two repeated elements.
+    public int[] twoRepeated(int arr[], int N)
+    {
+       int[] ans=new int[2];
+        int j=0;
+        for(int i=0;i<N+2;i++)
+        {
+            int abs_value=Math.abs(arr[i]);
+            if(arr[abs_value]<0)
+                ans[j++]=Math.abs(arr[i]);
+            else
+                arr[abs_value]=arr[abs_value]*-1;
+        }
+        return ans;
+    
+}
+}
